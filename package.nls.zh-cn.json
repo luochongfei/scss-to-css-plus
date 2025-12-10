@@ -1,0 +1,12 @@
+{
+    "scssToCssPlus.compile.title": "编译 SCSS 为 CSS",
+    "scssToCssPlus.configuration.title": "SCSS 转 CSS 增强版",
+    "scssToCssPlus.outDir.description": "CSS 文件输出目录。如果为空 (null)，则输出到 SCSS 文件所在目录。",
+    "scssToCssPlus.generateSourceMap.description": "为编译后的 CSS 生成 Source Map。",
+    "scssToCssPlus.minify.description": "使用 CSSNano 压缩编译后的 CSS。",
+    "scssToCssPlus.autoCompile.description": "保存 SCSS 文件时自动编译。",
+    "scssToCssPlus.browserslist.description": "Autoprefixer 的 Browserslist 配置。定义目标浏览器，例如 ['> 1%', 'last 2 versions']。",
+    "status.compiling": "SCSS 编译中...",
+    "status.success": "SCSS 编译成功",
+    "status.error": "SCSS 编译失败"
+}

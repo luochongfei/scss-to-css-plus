@@ -1,0 +1,112 @@
+{
+  "name": "scss-to-css-plus",
+  "displayName": "SCSS to CSS Plus",
+  "description": "Compile SCSS to CSS with PostCSS (Autoprefixer) and CSSNano on save.",
+  "version": "0.0.1",
+  "publisher": "luochongfei",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luochongfei/scss-to-css-plus.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onLanguage:scss"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "scssToCssPlus.compile",
+        "title": "%scssToCssPlus.compile.title%"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "%scssToCssPlus.configuration.title%",
+      "properties": {
+        "scssToCssPlus.outDir": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "%scssToCssPlus.outDir.description%"
+        },
+        "scssToCssPlus.generateSourceMap": {
+          "type": "boolean",
+          "default": true,
+          "description": "%scssToCssPlus.generateSourceMap.description%"
+        },
+        "scssToCssPlus.minify": {
+          "type": "boolean",
+          "default": true,
+          "description": "%scssToCssPlus.minify.description%"
+        },
+        "scssToCssPlus.autoCompile": {
+          "type": "boolean",
+          "default": true,
+          "description": "%scssToCssPlus.autoCompile.description%"
+        },
+        "scssToCssPlus.browserslist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "> 1%",
+            "last 2 versions"
+          ],
+          "description": "%scssToCssPlus.browserslist.description%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "build": "vsce package"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "copy-webpack-plugin": "^13.0.1",
+    "eslint": "^8.45.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "fs-extra": "^11.1.1",
+    "postcss": "^8.4.27",
+    "postcss-sort-media-queries": "^5.2.0",
+    "sass": "^1.64.1",
+    "vscode-nls": "^5.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/luochongfei/scss-to-css-plus/issues"
+  },
+  "homepage": "https://github.com/luochongfei/scss-to-css-plus#readme",
+  "keywords": ["scss", "css", "autoprefixer", "cssnano", "postcss", "vscode", "extension"],
+  "author": "luochongfei",
+  "license": "MIT"
+}

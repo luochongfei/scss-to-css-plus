@@ -1,0 +1,12 @@
+{
+    "scssToCssPlus.compile.title": "Compile SCSS to CSS",
+    "scssToCssPlus.configuration.title": "SCSS to CSS Plus",
+    "scssToCssPlus.outDir.description": "Output directory for CSS files. If null, outputs to the same directory as the SCSS file.",
+    "scssToCssPlus.generateSourceMap.description": "Generate source maps for the compiled CSS.",
+    "scssToCssPlus.minify.description": "Minify the compiled CSS using CSSNano.",
+    "scssToCssPlus.autoCompile.description": "Automatically compile SCSS files on save.",
+    "scssToCssPlus.browserslist.description": "Browserslist configuration for Autoprefixer. Define target browsers like ['> 1%', 'last 2 versions'].",
+    "status.compiling": "SCSS Compiling...",
+    "status.success": "SCSS Compiled Successfully",
+    "status.error": "SCSS Compilation Failed"
+}
