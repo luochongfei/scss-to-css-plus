@@ -1,7 +1,7 @@
 # SCSS 转 CSS 增强版 (SCSS to CSS Plus)
 
 保存 SCSS 文件时，自动编译为 CSS，并使用 PostCSS (Autoprefixer) 和 CSSNano 进行优化。
-![](https://github.com/luochongfei/scss-to-css-plus/demo.webp)
+![](demo.webp)
 
 ## 为什么叫增强版
 不仅仅是将 scss 转为 css, 还在编译后进行了精简优化，合并相同的样式，合并相同的媒体查询

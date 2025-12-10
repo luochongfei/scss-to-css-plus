@@ -2,7 +2,7 @@
 # SCSS to CSS Plus
 
 Automatically compile SCSS to CSS with PostCSS (Autoprefixer) and CSSNano on save.
-![](https://github.com/luochongfei/scss-to-css-plus/demo.webp)
+![](demo.webp)
 
 ## Features
 
