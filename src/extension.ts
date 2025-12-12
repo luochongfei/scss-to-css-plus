@@ -49,6 +49,14 @@ export function activate(context: vscode.ExtensionContext) {
                 outputChannel.appendLine(localize('msg.ignorePartial', 'Ignoring partial file: {0}', fileName));
                 return;
             }
+
+            // Check for ignore comment: /* scss-to-css: no */ or // scss-to-css: no
+            const text = document.getText();
+            if (/(\/\/|\/\*+)\s*scss-to-css:\s*no\b/i.test(text)) {
+                outputChannel.appendLine(localize('msg.ignoreComment', 'Ignoring file with "scss-to-css: no" comment: {0}', fileName));
+                return;
+            }
+
             await compileFile(document.uri);
         }
     }));

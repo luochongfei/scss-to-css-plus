@@ -12,6 +12,7 @@ Automatically compile SCSS to CSS with PostCSS (Autoprefixer) and CSSNano on sav
 - **Minify**: Compresses your CSS using CSSNano.
 - **Source Maps**: Generates source maps for easier debugging.
 - **Partials Support**: Automatically ignores files starting with `_`.
+- **Ignore Comment**: You can ignore specific files by adding `/* scss-to-css: no */` comment.
 
 ## Configuration
 

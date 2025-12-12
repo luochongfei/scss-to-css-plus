@@ -14,6 +14,7 @@
 - **压缩优化**: 使用 CSSNano 压缩 CSS 代码，减小文件体积。
 - **Source Maps**: 生成 Source Map 文件，方便调试。
 - **Partials 支持**: 自动忽略以 `_` 开头的文件（Partial 文件）。
+- **注释忽略**: 在文件中添加 `/* scss-to-css: no */` 注释即可忽略该文件的编译。
 
 ## 配置项
 
