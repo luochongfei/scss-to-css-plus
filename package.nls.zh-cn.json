@@ -9,6 +9,7 @@
     "status.compiling": "SCSS 编译中...",
     "status.success": "SCSS 编译成功",
     "status.error": "SCSS 编译失败",
-    "msg.ignorePartial": "忽略局部文件: {0}",
-    "msg.ignoreComment": "检测到 \"scss-to-css: no\" 注释，忽略文件: {0}"
+    "msg.ignorePartial": "忽略 Partial 文件: {0}",
+    "msg.ignoreComment": "检测到 \"scss-to-css: no\" 注释，忽略文件: {0}",
+    "btn.openOutput": "查看输出"
 }

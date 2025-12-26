@@ -3,13 +3,13 @@ import * as path from 'path';
 import { Compiler, CompilerOptions } from './compiler';
 import { localize } from './nls';
 
-let outputChannel: vscode.OutputChannel;
+let outputChannel: vscode.LogOutputChannel;
 let compiler: Compiler;
 let statusBarItem: vscode.StatusBarItem;
 
 export function activate(context: vscode.ExtensionContext) {
-    // Initialize Output Channel
-    outputChannel = vscode.window.createOutputChannel("SCSS to CSS Plus");
+    // Initialize Output Channel with 'log' language for syntax highlighting
+    outputChannel = vscode.window.createOutputChannel("SCSS to CSS Plus", { log: true });
     compiler = new Compiler(outputChannel);
 
     // Initialize StatusBar Item
@@ -114,7 +114,26 @@ async function compileFile(uri: vscode.Uri) {
             statusBarItem.hide();
         }, 5000);
 
-        vscode.window.showErrorMessage(localize('msg.failed', 'SCSS Compilation Failed. Check Output for details.'));
+        // Show specific error message in a modal
+        let errorMessage = localize('msg.failed', 'SCSS Compilation Failed');
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        } else if (typeof error === 'string') {
+            errorMessage = error;
+        } else if (error && typeof error === 'object' && 'message' in error) {
+             // Sass errors
+             errorMessage = (error as any).message;
+             if ((error as any).file && (error as any).line) {
+                 const fileName = path.basename((error as any).file);
+                 errorMessage = `${errorMessage} (${fileName}:${(error as any).line})`;
+             }
+        }
+
+        vscode.window.showErrorMessage(errorMessage, localize('btn.openOutput', 'Check Output')).then(selection => {
+            if (selection === localize('btn.openOutput', 'Check Output')) {
+                outputChannel.show();
+            }
+        });
     }
 }
 

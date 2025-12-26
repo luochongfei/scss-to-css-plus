@@ -10,5 +10,6 @@
     "status.success": "SCSS Compiled Successfully",
     "status.error": "SCSS Compilation Failed",
     "msg.ignorePartial": "Ignoring partial file: {0}",
-    "msg.ignoreComment": "Ignoring file with \"scss-to-css: no\" comment: {0}"
+    "msg.ignoreComment": "Ignoring file with \"scss-to-css: no\" comment: {0}",
+    "btn.openOutput": "Check Output"
 }

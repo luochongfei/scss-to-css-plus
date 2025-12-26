@@ -2,12 +2,12 @@
   "name": "scss-to-css-plus",
   "displayName": "SCSS to CSS Plus",
   "description": "Compile SCSS to CSS with PostCSS (Autoprefixer) and CSSNano on save.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "luochongfei",
   "icon": "icon.png",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luochongfei/scss-to-css-plus.git"
+    "type": "https",
+    "url": "https://github.com/luochongfei/scss-to-css-plus"
   },
   "engines": {
     "vscode": "^1.80.0"

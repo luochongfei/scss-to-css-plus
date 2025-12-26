@@ -20,10 +20,15 @@ export interface CompilerOptions {
 }
 
 export class Compiler {
-    private outputChannel: vscode.OutputChannel;
+    private outputChannel: vscode.LogOutputChannel;
 
-    constructor(outputChannel: vscode.OutputChannel) {
+    constructor(outputChannel: vscode.LogOutputChannel) {
         this.outputChannel = outputChannel;
+    }
+
+    private log(message: string) {
+        // LogOutputChannel manages timestamps automatically
+        this.outputChannel.info(message);
     }
 
     public async compile(filePath: string, options: CompilerOptions): Promise<void> {
@@ -91,16 +96,15 @@ export class Compiler {
             this.log(localize('compiler.success', 'Successfully compiled to: {0}', outputPath));
 
         } catch (error: any) {
-            this.log(localize('compiler.error', 'Error compiling {0}: {1}', filePath, error.message || error));
+            const errorMessage = localize('compiler.error', 'Error compiling {0}: {1}', filePath, error.message || error);
+            // Use error() to make it red in the log output
+            this.outputChannel.error(errorMessage);
+
             if (error.formatted) {
-                this.log(error.formatted);
+                 this.outputChannel.error(error.formatted);
             }
             throw error;
         }
-    }
-
-    private log(message: string) {
-        this.outputChannel.appendLine(`[${new Date().toLocaleTimeString()}] ${message}`);
     }
 }
 
